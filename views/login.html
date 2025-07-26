@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Expense Tracker - Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    body {
+      background: #eaf5ec;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+      .heading-box {
+  background-color: #2e7d32; /* deep green */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+    
+    .custom-card {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2, h3 {
+      color: #2e7d32;
+    }
+    .form-control {
+      border: 2px solid #c8e6c9;
+      border-radius: 8px;
+    }
+    .form-control:focus {
+      box-shadow: 0 0 5px #81c784;
+      border-color: #388e3c;
+    }
+    .btn-login {
+      background-color: #2e7d32;
+      color: #fff;
+      border-radius: 25px;
+    }
+    .btn-login:hover {
+      background-color: #1b5e20;
+    }
+    .btn-signup {
+      background-color: #43a047;
+      color: #fff;
+      border-radius: 12px;
+    }
+    .btn-signup:hover {
+      background-color: #2e7d32;
+    }
+    .custom-link {
+      color: #2e7d32;
+      text-decoration: none;
+    }
+    .custom-link:hover {
+      text-decoration: underline;
+      color: #1b5e20;
+    }
+    .btn-reset-link {
+  background-color: #388e3c;
+  color: white;
+  border-radius: 25px;
+  border: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-reset-link:hover {
+  background-color: #2e7d32;
+  box-shadow: 0 0 10px rgba(56, 142, 60, 0.4);
+}
+
+.btn-cancel-reset {
+  background-color: #c8e6c9;
+  color: #2e7d32;
+  border-radius: 25px;
+  border: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.btn-cancel-reset:hover {
+  background-color: #a5d6a7;
+  box-shadow: 0 0 8px rgba(46, 125, 50, 0.3);
+}
+  </style>
+</head>
+<body class="d-flex flex-column align-items-center justify-content-center vh-100">
+
+  <div class="heading-box text-center mb-4 px-4 py-3">
+  <h1 class="mb-1 text-white">💰 Expense Tracker</h1>
+  <p class="text-white mb-0">Manage Your Finances Smartly</p>
+</div>
+
+  <div class="card custom-card p-4 w-100" style="max-width: 400px;">
+    <h3 class="text-center mb-4">Login</h3>
+    <p class="text-center">Access your account to track expenses</p>
+
+    <form id="loginForm">
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="email" placeholder="Email Address" required />
+        <label for="email">Email Address</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="password" placeholder="Password" required />
+        <label for="password">Password</label>
+      </div>
+      <button type="submit" class="btn btn-login w-100">Login</button>
+
+      <div class="text-center mt-3">
+        <p>Don't have an account?</p>
+        <a href="/signup" class="btn btn-signup w-100">Sign Up</a>
+        <button id="showForgot" type="button" class="btn btn-link custom-link w-100 mt-2">Forgot Password?</button>
+      </div>
+    </form>
+
+  <!-- Forgot Password Form (hidden by default) -->
+<form id="forgotPasswordForm" class="mt-3 d-none">
+  <div class="form-floating mb-3">
+    <input type="email" class="form-control" id="forgotEmail" placeholder="Enter your email" required />
+    <label for="forgotEmail">Enter your Email</label>
+  </div>
+ <button type="submit" class="btn w-100 btn-reset-link" id="sendReset">Send Reset Link</button>
+<button id="cancelForgot" type="button" class="btn w-100 mt-2 btn-cancel-reset">Cancel</button>
+</form>
+  </div>
+
+  <script src="/login.js"></script>
+</body>
+</html>

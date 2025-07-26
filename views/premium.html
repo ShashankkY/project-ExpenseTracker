@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Premium Dashboard</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0d0d0d;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #f0e6d2;
+    }
+
+    .navbar {
+      background-color: #111;
+      color: #ffd700;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid #ffd700; /* Golden underline */
+    }
+
+    .navbar h2 {
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .btn-logout {
+      background-color: #ffd700;
+      color: #111;
+      border: none;
+      padding: 6px 14px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-logout:hover {
+      background-color: #e6c200;
+      box-shadow: 0 0 8px #ffd70066;
+    }
+
+    .top-bar {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .username-box {
+      background: #ffd700;
+      color: #111;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .premium-badge {
+      background: #111;
+      border: 2px solid #ffd700;
+      color: #ffd700;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-weight: 700;
+      margin-left: 10px;
+    }
+
+    .main {
+      max-width: 1100px;
+      margin: 20px auto;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 0 20px;
+    }
+
+    .column {
+      flex: 1;
+      min-width: 320px;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(255, 215, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(255, 215, 0, 0.15);
+    }
+
+    h3 {
+      color: #ffd700;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid #666;
+      margin-bottom: 15px;
+      font-size: 1rem;
+      background: #333;
+      color: #fff;
+    }
+
+    .btn-add {
+      background-color: #ffd700;
+      color: #111;
+      border: none;
+      border-radius: 8px;
+      width: 100%;
+      padding: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-add:hover {
+      background-color: #e6c200;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+    }
+
+    .expense-item {
+      background-color: #262626;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-direction: column;
+      font-size: 0.95rem;
+      border: 1px solid #444;
+    }
+
+    .expense-item div {
+      margin-bottom: 6px;
+    }
+
+    .expense-item small {
+      color: #bbb;
+    }
+
+    .expense-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-edit {
+      background-color: #fbc02d;
+      color: #111;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      padding: 6px 15px;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 4px rgba(255,215,0,0.2);
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .btn-edit:hover {
+      background-color: #e6b800;
+    }
+
+    .btn-delete {
+      background-color: #e53935;
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      padding: 6px 15px;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 4px rgba(255,215,0,0.1);
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .btn-delete:hover {
+      background-color: #c62828;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+    }
+
+    .pagination select,
+    .pagination button {
+      font-size: 1rem;
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid #666;
+      background: #1a1a1a;
+      color: #ffd700;
+      cursor: pointer;
+    }
+
+    .pagination span {
+      margin: 0 8px;
+    }
+
+   
+    #totalSpent {
+      margin-top: 10px;
+      padding: 12px;
+      background: #111;
+      border: 2px solid #ffd700;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #ffd700;
+    }
+
+    #reportResult table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    #reportResult th, #reportResult td {
+      border: 1px solid #444;
+      padding: 10px;
+      text-align: left;
+    }
+
+    #reportResult th {
+      background-color: #222;
+      color: #ffd700;
+    }
+
+    #reportResult tr:nth-child(even) {
+      background-color: #1a1a1a;
+    }
+
+    #leaderboard p {
+      margin: 8px 0;
+      padding: 8px;
+      background: #1a1a1a;
+      color: #ffd700;
+      border-left: 4px solid #ffd700;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <h2>🌟 Premium Dashboard</h2>
+    <button class="btn-logout">Logout</button>
+  </div>
+
+  <div class="top-bar">
+    <div class="username-box" id="usernameBox">Loading...</div>
+    <div class="premium-badge">⭐ Premium User</div>
+  </div>
+
+  <div class="main">
+    <!-- Add Expense -->
+    <div class="column">
+      <div class="card">
+        <h3>➕ Add New Expense</h3>
+        <form id="expenseForm">
+          <input type="number" id="amount" placeholder="Amount (₹)" required />
+          <input type="text" id="description" placeholder="Description" required />
+          <input type="text" id="note" placeholder="Note (Optional)" />
+          <select id="category" required>
+            <option disabled selected>Select category</option>
+            <option>Food</option><option>Petrol</option><option>Shopping</option>
+            <option>Entertainment</option><option>Travel</option>
+            <option>Education</option><option>Healthcare</option><option>Salary</option><option>Others</option>
+          </select>
+          <input type="date" id="date" required />
+          <input type="time" id="time" required />
+          <button type="submit" id="submitBtn" class="btn-add">Add Expense</button>
+        </form>
+        <ul id="expenseList" style="list-style: none; padding-left: 0;"></ul>
+
+        <!-- Pagination Controls -->
+        <div class="pagination">
+          <div>
+            <label for="pageSize">Per page:</label>
+            <select id="pageSize">
+              <option value="5" selected>5</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+            </select>
+          </div>
+          <div>
+            <button id="prevPage" class="btn-add" style="width: auto;">Previous</button>
+            <span id="pageInfo">Page 1</span>
+            <button id="nextPage" class="btn-add" style="width: auto;">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leaderboard -->
+    <div class="column">
+      <div class="card">
+        <h3>🏆 Leaderboard</h3>
+        <button id="showLeaderboardBtn" class="btn-add" style="margin-bottom: 15px;">Show Leaderboard</button>
+        <div id="leaderboard"></div>
+      </div>
+
+      <!-- Report -->
+      <div class="card" style="margin-top: 20px;">
+        <h3>📊 Report</h3>
+        <div class="expense-actions" style="margin-bottom: 10px;">
+          <button id="dailyBtn" class="btn-add" style="width: auto;">Daily</button>
+          <button id="monthlyBtn" class="btn-add" style="width: auto;">Monthly</button>
+          <button id="yearlyBtn" class="btn-add" style="width: auto;">Yearly</button>
+        </div>
+        <div id="reportResult"></div>
+        <div id="totalSpent" class="mt-2"></div>
+        <button id="downloadBtn" class="btn-add" style="margin-top: 10px; width: auto;">Download</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/premium.js"></script>
+</body>
+</html>

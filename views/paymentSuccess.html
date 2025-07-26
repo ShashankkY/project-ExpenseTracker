@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Payment Success</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f4f6f9;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .success-card {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 2px solid #2e7d32;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      padding: 40px 30px;
+      max-width: 480px;
+      text-align: center;
+    }
+
+    .success-card h1 {
+      color: #2e7d32;
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+      text-shadow: 0 0 4px rgba(46, 125, 50, 0.3);
+    }
+
+    .success-card p {
+      color: #444;
+      font-size: 1rem;
+      margin-bottom: 28px;
+    }
+
+    .btn-premium {
+      background: linear-gradient(to right, #ffa726, #fb8c00);
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    .btn-premium:hover {
+      background: linear-gradient(to right, #fb8c00, #ef6c00);
+      box-shadow: 0 0 10px rgba(251, 140, 0, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="success-card">
+    <h1>✅ Payment Successful!</h1>
+    <p>Thank you for upgrading to Premium. Enjoy exclusive features!</p>
+    <a href="/premium" class="btn-premium">Go to Premium Dashboard</a>
+  </div>
+</body>
+</html>
