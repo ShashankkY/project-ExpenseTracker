@@ -22,7 +22,7 @@ exports.createOrder = async (req, res) => {
       order_currency: 'INR',
       customer_details: {
         customer_id: `user_${userId}`,
-        customer_phone: '9876543210',
+        customer_phone: '8073867823',
         customer_email: 'test@example.com',
       },
       order_meta: {

@@ -16,7 +16,7 @@ const sequelize = new Sequelize(
 const User = require('./models/users')(sequelize, DataTypes);
 const Expense = require('./models/expenses')(sequelize, DataTypes);
 const Order = require('./models/orders')(sequelize, DataTypes);
-const ForgotPassword = require('./models/forgotPassword')(sequelize, DataTypes); // ✅ fixed: lowercase 'f'
+const ForgotPassword = require('./models/forgotPassword')(sequelize, DataTypes); 
 
 // Associations
 User.hasMany(Expense, { foreignKey: 'userId' });

@@ -19,7 +19,7 @@ exports.forgotPassword = async (req, res) => {
     const resetLink = `${process.env.RESET_PASSWORD_BASE_URL}/${request.id}`;
 
     await brevo.sendTransacEmail({
-      sender: { email: 'shashankyogesh12@gmail.com' }, // ✅ use your verified Brevo email
+      sender: { email: process.env.EMAIL }, // ✅ use your verified Brevo email
       to: [{ email: user.email }],
       subject: 'Reset your password',
       htmlContent: `<p>Click <a href="${resetLink}">here</a> to reset your password.</p>`,
