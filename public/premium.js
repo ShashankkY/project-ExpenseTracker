@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('category').value = exp.category;
             document.getElementById('date').value = exp.date || '';
             document.getElementById('time').value = exp.time || '';
+             document.getElementById('note').value = exp.note || ''; // ✅ here
             editingId = exp.id;
             submitBtn.innerText = 'Update Expense';
           });
@@ -84,7 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
       description: document.getElementById('description').value,
       category: document.getElementById('category').value,
       date: document.getElementById('date').value,
-      time: document.getElementById('time').value
+      time: document.getElementById('time').value,
+      note:document.getElementById('note').value
     };
 
     const url = editingId ? `/api/expenses/${editingId}` : '/api/expenses';

@@ -64,9 +64,9 @@ exports.downloadReport = async (req, res) => {
     Time: e.time || '',
     Amount: e.amount,
     Description: e.description,
-    Category: e.category
+    Category: e.category,
   }));
-
+ 
   const parser = new Parser({ fields: ['Date', 'Time', 'Amount', 'Description', 'Category'] });
   const csv = parser.parse(rows);
 

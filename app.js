@@ -14,7 +14,7 @@ const { sequelize } = require('./db');
 const app = express();
 
 // Static files (frontend)
-app.use(express.static(path.join(__dirname, 'views')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Body parsers
 app.use(express.json());

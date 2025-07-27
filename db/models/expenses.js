@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     category: { type: DataTypes.STRING, allowNull: false },
     date: { type: DataTypes.DATEONLY, allowNull: false },
     time: { type: DataTypes.TIME, allowNull: false },
-    note: { type: DataTypes.STRING }, // ✅ NEW FIELD: note
+    note: { type: DataTypes.STRING,allowNull: true }, // ✅ NEW FIELD: note
     userId: { type: DataTypes.INTEGER, allowNull: false }
   }, {
     timestamps: true
